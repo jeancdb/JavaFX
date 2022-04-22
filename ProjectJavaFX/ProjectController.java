@@ -12,27 +12,28 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 
 /**
- * Controller for StepTwo.
+ * Controller for the Project.
  *
- * @author Patrick Girard
- * @version 22/03/2020
+ * @author Jean Constant
+ * @version 22/04/2022
  */
 public class ProjectController
 {
     // We keep track of the count, and label displaying the count:
     
     @FXML
-    private TextField structureName;
-    
+    private TextField structureName, subjectField;
+    private Label test;
+    private String text;    
     /**
-     * This will be executed when the button is clicked
-     * It increments the count by 1
+     * To Add a new row in the TableView
      */
     @FXML
-    private void buttonClick(ActionEvent event)
+    private void buttonAdd(ActionEvent event)
     {
         // Counts number of button clicks and shows the result on a label
-        
+        text = structureName.getText();
+        System.out.println(text);
     }
     
 }
