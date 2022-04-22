@@ -23,8 +23,7 @@ public class ProjectController
     
     @FXML
     private TextField structureName, subjectField;
-    private Label test;
-    private String text;    
+    private Label rightTitle;    
     /**
      * To Add a new row in the TableView
      */
@@ -32,8 +31,8 @@ public class ProjectController
     private void buttonAdd(ActionEvent event)
     {
         // Counts number of button clicks and shows the result on a label
-        text = structureName.getText();
-        System.out.println(text);
+        rightTitle.setText("Ajout d'un stage, veuillez remplir les champs");
+        
     }
     
 }
