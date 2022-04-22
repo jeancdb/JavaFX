@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=ProjectController
+comment0.text=\n\ Controller\ for\ StepTwo.\n\n\ @author\ Patrick\ Girard\n\ @version\ 22/03/2020\n
+comment1.params=event
+comment1.target=void\ buttonClick(javafx.event.ActionEvent)
+comment1.text=\n\ This\ will\ be\ executed\ when\ the\ button\ is\ clicked\n\ It\ increments\ the\ count\ by\ 1\n
+numComments=2
