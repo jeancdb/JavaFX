@@ -13,8 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="687.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="687.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ProjectController">
    <children>
       <SplitPane dividerPositions="0.442369419317187" prefHeight="464.0" prefWidth="687.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -67,7 +66,7 @@
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="167.0" layoutY="166.0" promptText="Saisir..." />
+                  <TextField fx:id="structureName" layoutX="167.0" layoutY="166.0" promptText="Saisir..." />
                   <Label layoutX="14.0" layoutY="169.0" text="Nom de la structure :">
                      <font>
                         <Font size="14.0" />
