@@ -23,22 +23,13 @@ public class ProjectController
     
     @FXML
     private TextField structureName, subjectField, timeField;
-    private Label rightTitle;
-    private DatePicker monthField;
-    private SplitMenuButton promotion;
-    
-    /**
-     * Initialization of SplitMenuButton with the choices
-     */
     @FXML
-    private void initSplit(){
-        MenuItem l3 = new MenuItem("L3");
-        MenuItem m1 = new MenuItem("M1");
-        MenuItem m2 = new MenuItem("M2");
-        promotion.getItems().addAll(l3, m1, m2);
-    }
-    
-    
+    private Label rightTitle;
+    @FXML
+    private DatePicker monthField;
+    @FXML
+    private SplitMenuButton promotion;
+     
     /**
      * To Add a new row in the TableView
      */
@@ -46,8 +37,7 @@ public class ProjectController
     private void buttonAdd(ActionEvent event)
     {
         // Counts number of button clicks and shows the result on a label
-        rightTitle.setText("Ajout d'un stage, veuillez remplir les champs");
-        initSplit();
+        rightTitle.setText("Ajout d'un stage,\nveuillez remplir les champs");
     }
     
     /**
@@ -57,8 +47,9 @@ public class ProjectController
     private void promotionChoice(ActionEvent event)
     {
         // Counts number of button clicks and shows the result on a label
-        
-        
+        MenuItem choice = (MenuItem)event.getSource();
+        String promo = choice.getId();
+        promotion.setText(promo);
     }
 }
 

@@ -95,11 +95,11 @@
                      </font>
                   </Label>
                   <DatePicker fx:id="monthField" layoutX="120.0" layoutY="267.0" prefHeight="26.0" prefWidth="62.0" />
-                  <SplitMenuButton fx:id="promotion" layoutX="101.0" layoutY="310.0" mnemonicParsing="false" onAction="#promotionChoice" prefHeight="26.0" prefWidth="73.0" text="Promo">
+                  <SplitMenuButton fx:id="promotion" layoutX="101.0" layoutY="310.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="73.0" text="Promo">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="L3" />
-                        <MenuItem mnemonicParsing="false" text="M1" />
-                      <MenuItem mnemonicParsing="false" text="M2" />
+                        <MenuItem fx:id="L3" mnemonicParsing="false" onAction="#promotionChoice" text="L3" />
+                        <MenuItem fx:id="M1" mnemonicParsing="false" onAction="#promotionChoice" text="M1" />
+                      <MenuItem fx:id="M2" mnemonicParsing="false" onAction="#promotionChoice" text="M2" />
                      </items>
                      <contextMenu>
                         <ContextMenu />
