@@ -28,15 +28,16 @@ public class ProjectController
     private SplitMenuButton promotion;
     
     /**
-     * To init the SplitMenuButton with all the choices
+     * Initialization of SplitMenuButton with the choices
      */
-    public ProjectController(){
+    @FXML
+    private void initSplit(){
         MenuItem l3 = new MenuItem("L3");
         MenuItem m1 = new MenuItem("M1");
         MenuItem m2 = new MenuItem("M2");
-        
         promotion.getItems().addAll(l3, m1, m2);
     }
+    
     
     /**
      * To Add a new row in the TableView
@@ -46,6 +47,7 @@ public class ProjectController
     {
         // Counts number of button clicks and shows the result on a label
         rightTitle.setText("Ajout d'un stage, veuillez remplir les champs");
+        initSplit();
     }
     
     /**

@@ -2,8 +2,8 @@
 comment0.target=ProjectController
 comment0.text=\n\ Controller\ for\ the\ Project.\n\n\ @author\ Jean\ Constant\n\ @version\ 22/04/2022\n
 comment1.params=
-comment1.target=ProjectController()
-comment1.text=\n\ To\ init\ the\ SplitMenuButton\ with\ all\ the\ choices\n
+comment1.target=void\ initSplit()
+comment1.text=\n\ Initialization\ of\ SplitMenuButton\ with\ the\ choices\n
 comment2.params=event
 comment2.target=void\ buttonAdd(javafx.event.ActionEvent)
 comment2.text=\n\ To\ Add\ a\ new\ row\ in\ the\ TableView\n
