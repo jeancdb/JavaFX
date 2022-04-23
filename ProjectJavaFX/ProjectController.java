@@ -10,6 +10,8 @@ import javafx.stage.Stage;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.collections.*;
+import java.util.*;
 
 /**
  * Controller for the Project.
@@ -29,6 +31,8 @@ public class ProjectController
     private DatePicker monthField;
     @FXML
     private SplitMenuButton promotion;
+    @FXML
+    private TableView tableView;
      
     /**
      * To Add a new row in the TableView
@@ -38,6 +42,20 @@ public class ProjectController
     {
         // Counts number of button clicks and shows the result on a label
         rightTitle.setText("Ajout d'un stage,\nveuillez remplir les champs");
+        ObservableList<Map> allData = tableView.getItems();
+        int offset = allData.size();
+        Map<String, String> dataRow = new HashMap<>();
+        for (int j = 0; j < tableView.getColumns().size(); j++) {
+            String mapKey = Character.toString((char) ('A' + j));
+            System.out.println(mapKey);
+            String value1 = mapKey + (offset + 1);
+            System.out.println(value1);
+            dataRow.put(mapKey,value1);
+        
+        }
+        System.out.println(dataRow);
+        allData.add(dataRow);
+        
     }
     
     /**
