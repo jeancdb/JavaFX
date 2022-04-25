@@ -26,7 +26,7 @@ public class ProjectController
     @FXML
     private TextField structureName, subjectField, timeField;
     @FXML
-    private Label rightTitle;
+    private Label rightTitle,errorMessage;
     @FXML
     private DatePicker monthField;
     @FXML
@@ -104,8 +104,9 @@ public class ProjectController
             if (promo ==null){
                 throw new Exception ("promo null");
             }
+            errorMessage.setVisible(false);
         }catch (Exception e){
-            System.out.println("non");
+            errorMessage.setVisible(true);
         }
         
         /*
