@@ -111,8 +111,8 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Button fx:id="submitButton" layoutX="291.0" layoutY="390.0" mnemonicParsing="false" onAction="#submit" prefHeight="26.0" prefWidth="62.0" text="Submit" />
-                  <Button fx:id="stopButton" layoutX="216.0" layoutY="390.0" mnemonicParsing="false" onAction="#stop" prefHeight="26.0" prefWidth="62.0" text="Stop" />
+                  <Button fx:id="submitButton" layoutX="291.0" layoutY="390.0" mnemonicParsing="false" onAction="#submit" prefHeight="26.0" prefWidth="62.0" text="Submit" visible="false" />
+                  <Button fx:id="stopButton" layoutX="216.0" layoutY="390.0" mnemonicParsing="false" onAction="#stop" prefHeight="26.0" prefWidth="62.0" text="Stop" visible="false" />
                </children>
             </AnchorPane>
         </items>

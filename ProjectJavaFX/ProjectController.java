@@ -34,6 +34,8 @@ public class ProjectController
     private TableView<Stage> tableView;
     @FXML
     private TableColumn nameT,monthT,timeT,subjectT,promoT;
+    @FXML
+    private Button submitButton, stopButton;
      
     /**
      * To Add a new row in the TableView
@@ -44,20 +46,8 @@ public class ProjectController
         // Counts number of button clicks and shows the result on a label
         rightTitle.setText("Ajout d'un stage,\nveuillez remplir les champs");
         
-        nameT.setCellValueFactory(new PropertyValueFactory("nameStruct"));
-        monthT.setCellValueFactory(new PropertyValueFactory("month"));
-        timeT.setCellValueFactory(new PropertyValueFactory("duree"));
-        subjectT.setCellValueFactory(new PropertyValueFactory("subject"));
-        promoT.setCellValueFactory(new PropertyValueFactory("promo"));
-        
-        
-        Stage unStage = new Stage("Coucou", "Doe","coucou","8","coucou");
-    
-        ObservableList allData = FXCollections.observableArrayList();
-    
-        tableView.getItems();
-        allData.add(unStage);
-        tableView.setItems(allData);
+        submitButton.setVisible(true);
+        stopButton.setVisible(true);
         
         
         
@@ -101,11 +91,32 @@ public class ProjectController
      * To Add a new row in the TableView
      */
     @FXML
-    private void tetete(ActionEvent event)
+    private void submit(ActionEvent event)
     {
         // Counts number of button clicks and shows the result on a label
+        nameT.setCellValueFactory(new PropertyValueFactory("nameStruct"));
+        monthT.setCellValueFactory(new PropertyValueFactory("month"));
+        timeT.setCellValueFactory(new PropertyValueFactory("duree"));
+        subjectT.setCellValueFactory(new PropertyValueFactory("subject"));
+        promoT.setCellValueFactory(new PropertyValueFactory("promo"));
+        
+        
+        Stage unStage = new Stage("Coucou", "Doe","coucou","8","coucou");
     
-        System.out.println(tableView.getItems() );
+        ObservableList allData = FXCollections.observableArrayList();
+    
+        tableView.getItems();
+        allData.add(unStage);
+        tableView.setItems(allData);
+    }
+    
+    /**
+     * Pour stopper l'ajout d'un stage dans le tableView
+     */
+    @FXML
+    private void stop(ActionEvent event)
+    {
+        
     }
 }
 
