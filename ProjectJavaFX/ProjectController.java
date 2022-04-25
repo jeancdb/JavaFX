@@ -131,6 +131,11 @@ public class ProjectController
             tableView.setItems(allData);
             
             annulSaisie();
+            
+            
+            rightTitle.setText("Visualisation ou modification\ndes informations du stage\nsélectionné");
+            submitButton.setVisible(false);
+            stopButton.setVisible(false);
         }
         
         
@@ -158,6 +163,9 @@ public class ProjectController
     private void stop(ActionEvent event)
     {
         annulSaisie();
+        rightTitle.setText("Visualisation ou modification\ndes informations du stage\nsélectionné");
+        submitButton.setVisible(false);
+        stopButton.setVisible(false);
     }
 }
 
