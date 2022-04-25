@@ -96,16 +96,18 @@ public class ProjectController
     private void submit(ActionEvent event)
     {
         // Counts number of button clicks and shows the result on a label
-        
-        String name = structureName.getCharacters().toString();
-        String sujet = subjectField.getCharacters().toString();
-        String mois = monthField.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-        String duree = timeField.getCharacters().toString();
-        if (name ==null || sujet == null || mois == null || duree == null || promo==null){
+        try{
+            String name = structureName.getCharacters().toString();
+            String sujet = subjectField.getCharacters().toString();
+            String mois = monthField.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+            String duree = timeField.getCharacters().toString();
+            if (promo ==null){
+                throw new Exception ("promo null");
+            }
+        }catch (Exception e){
             System.out.println("non");
-        }else{
-            System.out.println("ok");
         }
+        
         /*
         nameT.setCellValueFactory(new PropertyValueFactory("nameStruct"));
         monthT.setCellValueFactory(new PropertyValueFactory("month"));
