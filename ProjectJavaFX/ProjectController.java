@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.*;
 import javafx.collections.*;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import javafx.beans.property.SimpleStringProperty;
 
@@ -37,6 +38,7 @@ public class ProjectController
     @FXML
     private Button submitButton, stopButton;
      
+    private String promo;
     /**
      * To Add a new row in the TableView
      */
@@ -82,7 +84,7 @@ public class ProjectController
     {
         // Counts number of button clicks and shows the result on a label
         MenuItem choice = (MenuItem)event.getSource();
-        String promo = choice.getId();
+        promo = choice.getId();
         promotion.setText(promo);
     }
     
@@ -94,6 +96,17 @@ public class ProjectController
     private void submit(ActionEvent event)
     {
         // Counts number of button clicks and shows the result on a label
+        
+        String name = structureName.getCharacters().toString();
+        String sujet = subjectField.getCharacters().toString();
+        String mois = monthField.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        String duree = timeField.getCharacters().toString();
+        if (name ==null || sujet == null || mois == null || duree == null || promo==null){
+            System.out.println("non");
+        }else{
+            System.out.println("ok");
+        }
+        /*
         nameT.setCellValueFactory(new PropertyValueFactory("nameStruct"));
         monthT.setCellValueFactory(new PropertyValueFactory("month"));
         timeT.setCellValueFactory(new PropertyValueFactory("duree"));
@@ -108,6 +121,7 @@ public class ProjectController
         tableView.getItems();
         allData.add(unStage);
         tableView.setItems(allData);
+        */
     }
     
     /**
