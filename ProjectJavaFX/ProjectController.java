@@ -123,13 +123,14 @@ public class ProjectController
             
             
             Stage unStage = new Stage(name, sujet,mois,duree,promo);
-        
+            /*
             ObservableList allData = FXCollections.observableArrayList();
         
             tableView.getItems();
             allData.add(unStage);
             tableView.setItems(allData);
-            
+            */
+            tableView.getItems().add(unStage);
             annulSaisie();
             
             
