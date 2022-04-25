@@ -38,7 +38,7 @@ public class ProjectController
     @FXML
     private Button submitButton, stopButton;
      
-    private String promo;
+    private String name,sujet,duree,mois,promo;
     /**
      * To Add a new row in the TableView
      */
@@ -96,35 +96,59 @@ public class ProjectController
     private void submit(ActionEvent event)
     {
         // Counts number of button clicks and shows the result on a label
+        boolean stop = false;
+        //on get les valeurs des textField, si des champs sont vides, on affiche un message d'erreur
         try{
-            String name = structureName.getCharacters().toString();
-            String sujet = subjectField.getCharacters().toString();
-            String mois = monthField.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-            String duree = timeField.getCharacters().toString();
+            name = structureName.getCharacters().toString();
+            sujet = subjectField.getCharacters().toString();
+            mois = monthField.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+            duree = timeField.getCharacters().toString();
             if (promo ==null){
                 throw new Exception ("promo null");
             }
             errorMessage.setVisible(false);
         }catch (Exception e){
             errorMessage.setVisible(true);
+            stop=true;
         }
         
-        /*
-        nameT.setCellValueFactory(new PropertyValueFactory("nameStruct"));
-        monthT.setCellValueFactory(new PropertyValueFactory("month"));
-        timeT.setCellValueFactory(new PropertyValueFactory("duree"));
-        subjectT.setCellValueFactory(new PropertyValueFactory("subject"));
-        promoT.setCellValueFactory(new PropertyValueFactory("promo"));
+        
+        if (!stop){
+            //initialisation des cellules 
+            nameT.setCellValueFactory(new PropertyValueFactory("nameStruct"));
+            monthT.setCellValueFactory(new PropertyValueFactory("month"));
+            timeT.setCellValueFactory(new PropertyValueFactory("duree"));
+            subjectT.setCellValueFactory(new PropertyValueFactory("subject"));
+            promoT.setCellValueFactory(new PropertyValueFactory("promo"));
+            
+            
+            Stage unStage = new Stage(name, sujet,mois,duree,promo);
+        
+            ObservableList allData = FXCollections.observableArrayList();
+        
+            tableView.getItems();
+            allData.add(unStage);
+            tableView.setItems(allData);
+            
+            annulSaisie();
+        }
         
         
-        Stage unStage = new Stage("Coucou", "Doe","coucou","8","coucou");
+        
+    }
     
-        ObservableList allData = FXCollections.observableArrayList();
-    
-        tableView.getItems();
-        allData.add(unStage);
-        tableView.setItems(allData);
-        */
+    /**
+     * Annulation de la saisie de l'ajout d'un stage
+     */
+    @FXML
+    private void annulSaisie()
+    {
+        structureName.setText(null);
+        subjectField.setText(null);
+        timeField.setText(null);
+        monthField.setValue(null);
+        promotion.setText("Promo");
+        
     }
     
     /**
@@ -133,7 +157,7 @@ public class ProjectController
     @FXML
     private void stop(ActionEvent event)
     {
-        
+        annulSaisie();
     }
 }
 
