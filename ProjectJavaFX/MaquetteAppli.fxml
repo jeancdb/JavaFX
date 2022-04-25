@@ -37,7 +37,7 @@
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="331.0" prefWidth="294.0">
                                        <children>
-                                          <TableView fx:id="tableView" layoutX="-2.0" layoutY="6.0" prefHeight="331.0" prefWidth="294.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <TableView fx:id="tableView" layoutX="-2.0" layoutY="6.0" onMousePressed="#selectionRow" prefHeight="331.0" prefWidth="294.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                             <columns>
                                               <TableColumn fx:id="nameT" prefWidth="40.800019800662994" text="Nom de la structure" />
                                               <TableColumn fx:id="subjectT" prefWidth="50.39995574951172" text="Sujet du stage" />

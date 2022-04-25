@@ -165,5 +165,17 @@ public class ProjectController
         submitButton.setVisible(false);
         stopButton.setVisible(false);
     }
+    
+    /**
+     * Pour récuperer les valeurs de la ligne sélectionnée
+     */
+    @FXML
+    private void selectionRow(){
+        //sélection d'une ligne (pour l'instant uniquement la première case)
+        ArrayList<Stage> p = new ArrayList<>(tableView.getSelectionModel().getSelectedItems());
+        for (Stage res : p) {     
+            System.out.println(res.getNameStruct());      
+        }
+    }
 }
 
