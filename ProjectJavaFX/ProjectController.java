@@ -3,12 +3,10 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.*;
 import javafx.collections.*;
 import java.util.*;
@@ -33,7 +31,7 @@ public class ProjectController
     @FXML
     private SplitMenuButton promotion;
     @FXML
-    private TableView tableView;
+    private TableView<Stage> tableView;
     @FXML
     private TableColumn nameT,monthT,timeT,subjectT,promoT;
      
@@ -46,23 +44,37 @@ public class ProjectController
         // Counts number of button clicks and shows the result on a label
         rightTitle.setText("Ajout d'un stage,\nveuillez remplir les champs");
         
+        nameT.setCellValueFactory(new PropertyValueFactory("nameStruct"));
+        monthT.setCellValueFactory(new PropertyValueFactory("month"));
+        timeT.setCellValueFactory(new PropertyValueFactory("duree"));
+        subjectT.setCellValueFactory(new PropertyValueFactory("subject"));
+        promoT.setCellValueFactory(new PropertyValueFactory("promo"));
+        
+        
+        Stage unStage = new Stage("Coucou", "Doe","coucou","8","coucou");
+    
+        ObservableList allData = FXCollections.observableArrayList();
+    
+        tableView.getItems();
+        allData.add(unStage);
+        tableView.setItems(allData);
+        
+        
+        
+        /*
         ObservableList<Map> allData = tableView.getItems();
         int offset = allData.size();
         Map<String, String> dataRow = new HashMap<>();
         for (int j = 0; j < tableView.getColumns().size(); j++) {
             String mapKey = Character.toString((char) ('A' + j));
             String value1 = mapKey + (offset + 1);
-            System.out.println(value1);
             dataRow.put(mapKey,value1);
         
         }
-        System.out.println(dataRow);
         allData.add(dataRow);
-        
-        List<TableColumnBase> columns = tableView.getColumns();
-        for(TableColumnBase e: columns) {
-            tableView.getColumns().add((TableColumn<T, ?>) e);
-        }
+        tableView.setItems(allData);
+        */
+
         for (int i = 0; i < tableView.getColumns().size(); i++) {
             ((TableColumn)(tableView.getColumns().get(i))).setVisible(false);
             
@@ -81,6 +93,18 @@ public class ProjectController
         MenuItem choice = (MenuItem)event.getSource();
         String promo = choice.getId();
         promotion.setText(promo);
+    }
+    
+    
+    /**
+     * To Add a new row in the TableView
+     */
+    @FXML
+    private void tetete(ActionEvent event)
+    {
+        // Counts number of button clicks and shows the result on a label
+    
+        System.out.println(tableView.getItems() );
     }
 }
 
