@@ -73,13 +73,14 @@ public class ProjectController
         }
         allData.add(dataRow);
         tableView.setItems(allData);
-        */
+        
 
         for (int i = 0; i < tableView.getColumns().size(); i++) {
             ((TableColumn)(tableView.getColumns().get(i))).setVisible(false);
             
             ((TableColumn)(tableView.getColumns().get(i))).setVisible(true);
         }
+        */
         
     }
     
