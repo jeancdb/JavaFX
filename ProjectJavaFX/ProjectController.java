@@ -138,9 +138,6 @@ public class ProjectController
             submitButton.setVisible(false);
             stopButton.setVisible(false);
         }
-        
-        
-        
     }
     
     /**
