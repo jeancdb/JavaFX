@@ -12,6 +12,7 @@ import javafx.collections.*;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import javafx.beans.property.SimpleStringProperty;
+import java.time.LocalDate;
 
 /**
  * Controller for the Project.
@@ -46,33 +47,11 @@ public class ProjectController
     private void buttonAdd(ActionEvent event)
     {
         // Counts number of button clicks and shows the result on a label
+        annulSaisie();
         rightTitle.setText("Ajout d'un stage,\nveuillez remplir les champs");
         
         submitButton.setVisible(true);
         stopButton.setVisible(true);
-        
-        
-        
-        /*
-        ObservableList<Map> allData = tableView.getItems();
-        int offset = allData.size();
-        Map<String, String> dataRow = new HashMap<>();
-        for (int j = 0; j < tableView.getColumns().size(); j++) {
-            String mapKey = Character.toString((char) ('A' + j));
-            String value1 = mapKey + (offset + 1);
-            dataRow.put(mapKey,value1);
-        
-        }
-        allData.add(dataRow);
-        tableView.setItems(allData);
-        
-
-        for (int i = 0; i < tableView.getColumns().size(); i++) {
-            ((TableColumn)(tableView.getColumns().get(i))).setVisible(false);
-            
-            ((TableColumn)(tableView.getColumns().get(i))).setVisible(true);
-        }
-        */
         
     }
     
@@ -173,8 +152,12 @@ public class ProjectController
     private void selectionRow(){
         //sélection d'une ligne (pour l'instant uniquement la première case)
         ArrayList<Stage> p = new ArrayList<>(tableView.getSelectionModel().getSelectedItems());
-        for (Stage res : p) {     
-            System.out.println(res.getNameStruct());      
+        for (Stage res : p) {
+            structureName.setText(res.getNameStruct());
+            subjectField.setText(res.getSubject());
+            timeField.setText(res.getDuree());
+            monthField.setValue(LocalDate.parse(res.getMonth()));
+            promotion.setText(res.getPromo());
         }
     }
 }
