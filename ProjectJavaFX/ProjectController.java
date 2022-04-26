@@ -37,7 +37,7 @@ public class ProjectController
     @FXML
     private TableColumn nameT,monthT,timeT,subjectT,promoT;
     @FXML
-    private Button submitButton, stopButton;
+    private Button submitButton, stopButton, modifButton,deleteButton,annulButton;
      
     private String name,sujet,duree,mois,promo;
     /**
@@ -130,6 +130,9 @@ public class ProjectController
         timeField.setText(null);
         monthField.setValue(null);
         promotion.setText("Promo");
+        modifButton.setVisible(false);
+        deleteButton.setVisible(false);
+        annulButton.setVisible(false);
         
     }
     
@@ -159,6 +162,35 @@ public class ProjectController
             monthField.setValue(LocalDate.parse(res.getMonth()));
             promotion.setText(res.getPromo());
         }
+        modifButton.setVisible(true);
+        deleteButton.setVisible(true);
+        annulButton.setVisible(true);
+    }
+    
+    /**
+     * Modification du stage sélectionné
+     */
+    @FXML
+    private void modifStage(ActionEvent event){
+        submit(event);
+        //juste pour le test, après fonction change aussi les choses dans la bdd
+        //il faut modifier la ligne correspondante dans la bdd
+        //puis réafficher le tableau
+        modifButton.setVisible(false);
+        deleteButton.setVisible(false);
+        annulButton.setVisible(false);
+    }
+    
+    /**
+     * Suppression du stage sélectionné
+     */
+    @FXML
+    private void suppStage(ActionEvent event){
+        //supprimer la ligne dans la bdd
+        //réafficher le tableau
+        modifButton.setVisible(false);
+        deleteButton.setVisible(false);
+        annulButton.setVisible(false);
     }
 }
 

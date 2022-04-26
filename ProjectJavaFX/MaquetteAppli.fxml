@@ -14,30 +14,40 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="687.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ProjectController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ProjectController">
    <children>
       <SplitPane dividerPositions="0.442369419317187" prefHeight="464.0" prefWidth="687.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <SplitPane dividerPositions="0.21093750000000003" layoutY="-6.0" orientation="VERTICAL" prefHeight="462.4" prefWidth="253.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <SplitPane dividerPositions="0.21093750000000003, 0.5" layoutY="-6.0" orientation="VERTICAL" prefHeight="462.4" prefWidth="253.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-200.0">
                     <items>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="187.0" prefWidth="403.0">
                            <children>
-                              <Label layoutX="16.0" layoutY="20.0" text="Listes des stages">
+                              <Label layoutX="19.0" layoutY="210.0" text="Listes des stages">
                                  <font>
                                     <Font size="36.0" />
                                  </font>
                               </Label>
+                              <SplitMenuButton fx:id="promotion1" layoutX="162.0" layoutY="254.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="129.0" text="Tous les stages">
+                                 <items>
+                                    <MenuItem fx:id="L31" mnemonicParsing="false" onAction="#promotionChoice" text="L3" />
+                                    <MenuItem fx:id="M11" mnemonicParsing="false" onAction="#promotionChoice" text="M1" />
+                                    <MenuItem fx:id="M21" mnemonicParsing="false" onAction="#promotionChoice" text="M2" />
+                                 </items>
+                                 <contextMenu>
+                                    <ContextMenu />
+                                 </contextMenu>
+                              </SplitMenuButton>
                            </children>
                         </AnchorPane>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="341.0" prefWidth="298.0">
                            <children>
                               <ScrollPane layoutY="-5.0" prefHeight="359.0" prefWidth="298.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <content>
                                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="331.0" prefWidth="294.0">
                                        <children>
-                                          <TableView fx:id="tableView" layoutX="-2.0" layoutY="6.0" onMousePressed="#selectionRow" prefHeight="331.0" prefWidth="294.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <TableView fx:id="tableView" layoutX="-2.0" layoutY="-131.0" onMousePressed="#selectionRow" prefHeight="331.0" prefWidth="294.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                             <columns>
                                               <TableColumn fx:id="nameT" prefWidth="40.800019800662994" text="Nom de la structure" />
                                               <TableColumn fx:id="subjectT" prefWidth="50.39995574951172" text="Sujet du stage" />
@@ -53,9 +63,9 @@
                                     </AnchorPane>
                                 </content>
                               </ScrollPane>
-                              <Button layoutX="130.0" layoutY="334.0" mnemonicParsing="false" onAction="#buttonAdd" text="Add" />
                            </children>
                         </AnchorPane>
+                        <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#buttonAdd" text="Ajouter un Stage" />
                     </items>
                   </SplitPane>
                </children>
@@ -89,13 +99,13 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="191.0" layoutY="270.0" text="Durée du stage :">
+                  <Label layoutX="234.0" layoutY="262.0" text="Durée du &#10;stage :">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <DatePicker fx:id="monthField" layoutX="120.0" layoutY="267.0" prefHeight="26.0" prefWidth="62.0" />
-                  <SplitMenuButton fx:id="promotion" layoutX="101.0" layoutY="310.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="73.0" text="Promo">
+                  <DatePicker fx:id="monthField" layoutX="120.0" layoutY="267.0" prefHeight="26.0" prefWidth="100.0" />
+                  <SplitMenuButton fx:id="promotion" layoutX="101.0" layoutY="310.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="100.0" text="Promo">
                      <items>
                         <MenuItem fx:id="L3" mnemonicParsing="false" onAction="#promotionChoice" text="L3" />
                         <MenuItem fx:id="M1" mnemonicParsing="false" onAction="#promotionChoice" text="M1" />
@@ -114,6 +124,9 @@
                   <Button fx:id="submitButton" layoutX="291.0" layoutY="390.0" mnemonicParsing="false" onAction="#submit" prefHeight="26.0" prefWidth="62.0" text="Submit" visible="false" />
                   <Button fx:id="stopButton" layoutX="216.0" layoutY="390.0" mnemonicParsing="false" onAction="#stop" prefHeight="26.0" prefWidth="62.0" text="Stop" visible="false" />
                   <Label fx:id="errorMessage" layoutX="30.0" layoutY="353.0" text="Veuillez remplir tous les champs !" textFill="RED" visible="false" />
+                  <Button fx:id="modifButton" layoutX="294.0" layoutY="390.0" mnemonicParsing="false" onAction="#modifStage" text="Modifier" visible="false" />
+                  <Button fx:id="deleteButton" layoutX="210.0" layoutY="390.0" mnemonicParsing="false" onAction="#suppStage" text="Supprimer" visible="false" />
+                  <Button fx:id="annulButton" layoutX="139.0" layoutY="390.0" mnemonicParsing="false" onAction="#annulSaisie" text="Annuler" visible="false" />
                </children>
             </AnchorPane>
         </items>
