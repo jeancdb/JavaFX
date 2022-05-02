@@ -12,6 +12,7 @@ import javafx.collections.*;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import javafx.beans.property.SimpleStringProperty;
+import java.time.LocalDate;
 
 /**
  * Controller for the Project.
@@ -26,7 +27,7 @@ public class ProjectController
     @FXML
     private TextField structureName, subjectField, timeField;
     @FXML
-    private Label rightTitle;
+    private Label rightTitle,errorMessage;
     @FXML
     private DatePicker monthField;
     @FXML
@@ -36,9 +37,9 @@ public class ProjectController
     @FXML
     private TableColumn nameT,monthT,timeT,subjectT,promoT;
     @FXML
-    private Button submitButton, stopButton;
+    private Button submitButton, stopButton, modifButton,deleteButton,annulButton;
      
-    private String promo;
+    private String name,sujet,duree,mois,promo;
     /**
      * To Add a new row in the TableView
      */
@@ -46,33 +47,11 @@ public class ProjectController
     private void buttonAdd(ActionEvent event)
     {
         // Counts number of button clicks and shows the result on a label
+        annulSaisie();
         rightTitle.setText("Ajout d'un stage,\nveuillez remplir les champs");
         
         submitButton.setVisible(true);
         stopButton.setVisible(true);
-        
-        
-        
-        /*
-        ObservableList<Map> allData = tableView.getItems();
-        int offset = allData.size();
-        Map<String, String> dataRow = new HashMap<>();
-        for (int j = 0; j < tableView.getColumns().size(); j++) {
-            String mapKey = Character.toString((char) ('A' + j));
-            String value1 = mapKey + (offset + 1);
-            dataRow.put(mapKey,value1);
-        
-        }
-        allData.add(dataRow);
-        tableView.setItems(allData);
-        
-
-        for (int i = 0; i < tableView.getColumns().size(); i++) {
-            ((TableColumn)(tableView.getColumns().get(i))).setVisible(false);
-            
-            ((TableColumn)(tableView.getColumns().get(i))).setVisible(true);
-        }
-        */
         
     }
     
@@ -96,32 +75,65 @@ public class ProjectController
     private void submit(ActionEvent event)
     {
         // Counts number of button clicks and shows the result on a label
-        
-        String name = structureName.getCharacters().toString();
-        String sujet = subjectField.getCharacters().toString();
-        String mois = monthField.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-        String duree = timeField.getCharacters().toString();
-        if (name ==null || sujet == null || mois == null || duree == null || promo==null){
-            System.out.println("non");
-        }else{
-            System.out.println("ok");
+        boolean stop = false;
+        //on get les valeurs des textField, si des champs sont vides, on affiche un message d'erreur
+        try{
+            name = structureName.getCharacters().toString();
+            sujet = subjectField.getCharacters().toString();
+            mois = monthField.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+            duree = timeField.getCharacters().toString();
+            if (promo ==null){
+                throw new Exception ("promo null");
+            }
+            errorMessage.setVisible(false);
+        }catch (Exception e){
+            errorMessage.setVisible(true);
+            stop=true;
         }
-        /*
-        nameT.setCellValueFactory(new PropertyValueFactory("nameStruct"));
-        monthT.setCellValueFactory(new PropertyValueFactory("month"));
-        timeT.setCellValueFactory(new PropertyValueFactory("duree"));
-        subjectT.setCellValueFactory(new PropertyValueFactory("subject"));
-        promoT.setCellValueFactory(new PropertyValueFactory("promo"));
         
         
-        Stage unStage = new Stage("Coucou", "Doe","coucou","8","coucou");
+        if (!stop){
+            //initialisation des cellules 
+            nameT.setCellValueFactory(new PropertyValueFactory("nameStruct"));
+            monthT.setCellValueFactory(new PropertyValueFactory("month"));
+            timeT.setCellValueFactory(new PropertyValueFactory("duree"));
+            subjectT.setCellValueFactory(new PropertyValueFactory("subject"));
+            promoT.setCellValueFactory(new PropertyValueFactory("promo"));
+            
+            
+            Stage unStage = new Stage(name, sujet,mois,duree,promo);
+            /*
+            ObservableList allData = FXCollections.observableArrayList();
+        
+            tableView.getItems();
+            allData.add(unStage);
+            tableView.setItems(allData);
+            */
+            tableView.getItems().add(unStage);
+            annulSaisie();
+            
+            
+            rightTitle.setText("Visualisation ou modification\ndes informations du stage\nsélectionné");
+            submitButton.setVisible(false);
+            stopButton.setVisible(false);
+        }
+    }
     
-        ObservableList allData = FXCollections.observableArrayList();
-    
-        tableView.getItems();
-        allData.add(unStage);
-        tableView.setItems(allData);
-        */
+    /**
+     * Annulation de la saisie de l'ajout d'un stage
+     */
+    @FXML
+    private void annulSaisie()
+    {
+        structureName.setText(null);
+        subjectField.setText(null);
+        timeField.setText(null);
+        monthField.setValue(null);
+        promotion.setText("Promo");
+        modifButton.setVisible(false);
+        deleteButton.setVisible(false);
+        annulButton.setVisible(false);
+        
     }
     
     /**
@@ -130,7 +142,55 @@ public class ProjectController
     @FXML
     private void stop(ActionEvent event)
     {
-        
+        annulSaisie();
+        rightTitle.setText("Visualisation ou modification\ndes informations du stage\nsélectionné");
+        submitButton.setVisible(false);
+        stopButton.setVisible(false);
+    }
+    
+    /**
+     * Pour récuperer les valeurs de la ligne sélectionnée
+     */
+    @FXML
+    private void selectionRow(){
+        //sélection d'une ligne (pour l'instant uniquement la première case)
+        ArrayList<Stage> p = new ArrayList<>(tableView.getSelectionModel().getSelectedItems());
+        for (Stage res : p) {
+            structureName.setText(res.getNameStruct());
+            subjectField.setText(res.getSubject());
+            timeField.setText(res.getDuree());
+            monthField.setValue(LocalDate.parse(res.getMonth()));
+            promotion.setText(res.getPromo());
+        }
+        modifButton.setVisible(true);
+        deleteButton.setVisible(true);
+        annulButton.setVisible(true);
+    }
+    
+    /**
+     * Modification du stage sélectionné
+     */
+    @FXML
+    private void modifStage(ActionEvent event){
+        submit(event);
+        //juste pour le test, après fonction change aussi les choses dans la bdd
+        //il faut modifier la ligne correspondante dans la bdd
+        //puis réafficher le tableau
+        modifButton.setVisible(false);
+        deleteButton.setVisible(false);
+        annulButton.setVisible(false);
+    }
+    
+    /**
+     * Suppression du stage sélectionné
+     */
+    @FXML
+    private void suppStage(ActionEvent event){
+        //supprimer la ligne dans la bdd
+        //réafficher le tableau
+        modifButton.setVisible(false);
+        deleteButton.setVisible(false);
+        annulButton.setVisible(false);
     }
 }
 
