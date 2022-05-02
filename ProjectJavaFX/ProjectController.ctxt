@@ -1,12 +1,12 @@
 #BlueJ class context
 comment0.target=ProjectController
-comment0.text=\r\n\ Controller\ for\ the\ Project.\r\n\r\n\ @author\ Jean\ Constant\r\n\ @version\ 22/04/2022\r\n
+comment0.text=\n\ Controller\ for\ the\ Project.\n\n\ @author\ Jean\ Constant\n\ @version\ 22/04/2022\n
 comment1.params=event
 comment1.target=void\ buttonAdd(javafx.event.ActionEvent)
-comment1.text=\r\n\ To\ Add\ a\ new\ row\ in\ the\ TableView\r\n
+comment1.text=\n\ To\ Add\ a\ new\ row\ in\ the\ TableView\n
 comment2.params=event
 comment2.target=void\ promotionChoice(javafx.event.ActionEvent)
-comment2.text=\r\n\ To\ Add\ a\ new\ row\ in\ the\ TableView\r\n
+comment2.text=\n\ To\ Add\ a\ new\ row\ in\ the\ TableView\n
 comment3.params=event
 comment3.target=void\ submit(javafx.event.ActionEvent)
 comment3.text=\n\ To\ Add\ a\ new\ row\ in\ the\ TableView\n
@@ -26,4 +26,3 @@ comment8.params=event
 comment8.target=void\ suppStage(javafx.event.ActionEvent)
 comment8.text=\n\ Suppression\ du\ stage\ s\u00E9lectionn\u00E9\n
 numComments=9
-

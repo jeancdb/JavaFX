@@ -188,6 +188,8 @@ public class ProjectController
     private void suppStage(ActionEvent event){
         //supprimer la ligne dans la bdd
         //réafficher le tableau
+        tableView.getItems().removeAll(tableView.getSelectionModel().getSelectedItems());
+        annulSaisie();
         modifButton.setVisible(false);
         deleteButton.setVisible(false);
         annulButton.setVisible(false);
