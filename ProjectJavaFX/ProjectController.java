@@ -173,9 +173,11 @@ public class ProjectController
     @FXML
     private void modifStage(ActionEvent event){
         submit(event);
+        tableView.getItems().removeAll(tableView.getSelectionModel().getSelectedItems());
         //juste pour le test, après fonction change aussi les choses dans la bdd
         //il faut modifier la ligne correspondante dans la bdd
         //puis réafficher le tableau
+        annulSaisie();
         modifButton.setVisible(false);
         deleteButton.setVisible(false);
         annulButton.setVisible(false);
