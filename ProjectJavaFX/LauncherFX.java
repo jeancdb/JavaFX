@@ -16,7 +16,7 @@ import javafx.scene.Parent;
  * The Launcher of the project JavaFX
  * Linking FXML and java code
  *
- * @author Jean CONSTANT
+ * @author Jean CONSTANT - Quentin Simon
  * @version 22/04/2022
  */
 public class LauncherFX extends Application

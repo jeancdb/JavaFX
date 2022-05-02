@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Stage
-comment0.text=\n\ D\u00E9crivez\ votre\ classe\ Stage\ ici.\n\n\ @author\ (votre\ nom)\n\ @version\ (un\ num\u00E9ro\ de\ version\ ou\ une\ date)\n
+comment0.text=\n\ Classe\ Stage\n\ D\u00E9finit\ un\ stage\ par\ \:\n\ -\ le\ nom\ de\ la\ structure\n\ -\ le\ sujet\ \n\ -\ le\ mois\ du\ stage\n\ -\ la\ promotion\ de\ l'\u00E9tudiant\n\ -\ la\ dur\u00E9e\ du\ stage\n\n\ @author\ Jean\ CONSTANT\ -\ Quentin\ SIMON\n\ @version\ (un\ num\u00E9ro\ de\ version\ ou\ une\ date)\n
 comment1.params=nameStruct\ subject\ month\ duree\ promo
 comment1.target=Stage(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
 comment1.text=\n\ Constructeur\ d'objets\ de\ classe\ Stage\n

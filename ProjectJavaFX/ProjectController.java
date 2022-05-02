@@ -17,8 +17,8 @@ import java.time.LocalDate;
 /**
  * Controller for the Project.
  *
- * @author Jean Constant
- * @version 22/04/2022
+ * @author Jean Constant - Quentin Simon
+ * @version 2/05/2022
  */
 public class ProjectController
 {
@@ -42,7 +42,7 @@ public class ProjectController
     private String name,sujet,duree,mois,promo;
     /**
      * To Add a new row in the TableView
-     * L'utilisateur est invité à rentrer les 
+     * L'utilisateur est invité à rentrer les informations du stage
      */
     @FXML
     private void buttonAdd(ActionEvent event)
@@ -58,12 +58,11 @@ public class ProjectController
     }
     
     /**
-     * To Add a new row in the TableView
+     * Pour choisir la promotion du stagiaire
      */
     @FXML
     private void promotionChoice(ActionEvent event)
     {
-        // Counts number of button clicks and shows the result on a label
         MenuItem choice = (MenuItem)event.getSource();
         promo = choice.getId();
         promotion.setText(promo);
@@ -71,12 +70,11 @@ public class ProjectController
     
     
     /**
-     * To Add a new row in the TableView
+     * Verification que tous les champs sont saisies et ajout de la ligne dans le tableau
      */
     @FXML
     private void submit(ActionEvent event)
     {
-        // Counts number of button clicks and shows the result on a label
         boolean stop = false;
         //on get les valeurs des textField, si des champs sont vides, on affiche un message d'erreur
         try{
@@ -104,13 +102,7 @@ public class ProjectController
             
             
             Stage unStage = new Stage(name, sujet,mois,duree,promo);
-            /*
-            ObservableList allData = FXCollections.observableArrayList();
-        
-            tableView.getItems();
-            allData.add(unStage);
-            tableView.setItems(allData);
-            */
+            
             tableView.getItems().add(unStage);
             annulSaisie();
             
@@ -127,6 +119,7 @@ public class ProjectController
     @FXML
     private void annulSaisie()
     {
+        // on vide tous les champs
         structureName.setText(null);
         subjectField.setText(null);
         timeField.setText(null);

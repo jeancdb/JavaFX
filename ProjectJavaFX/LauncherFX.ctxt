@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=LauncherFX
-comment0.text=\r\n\ The\ Launcher\ of\ the\ project\ JavaFX\r\n\ Linking\ FXML\ and\ java\ code\r\n\r\n\ @author\ Jean\ CONSTANT\r\n\ @version\ 22/04/2022\r\n
+comment0.text=\n\ The\ Launcher\ of\ the\ project\ JavaFX\n\ Linking\ FXML\ and\ java\ code\n\n\ @author\ Jean\ CONSTANT\ -\ Quentin\ Simon\n\ @version\ 22/04/2022\n
 comment1.params=stage
 comment1.target=void\ start(javafx.stage.Stage)
-comment1.text=\r\n\ Start\ the\ application\ in\ another\ windows.\r\n\r\n\ @param\ \ stage\ the\ primary\ stage\ for\ this\ application.\r\n
+comment1.text=\n\ Start\ the\ application\ in\ another\ windows.\n\n\ @param\ \ stage\ the\ primary\ stage\ for\ this\ application.\n
 numComments=2

@@ -11,9 +11,15 @@ import javafx.collections.*;
 import java.util.*;
 import javafx.beans.property.SimpleStringProperty;
 /**
- * Décrivez votre classe Stage ici.
+ * Classe Stage
+ * Définit un stage par :
+ * - le nom de la structure
+ * - le sujet 
+ * - le mois du stage
+ * - la promotion de l'étudiant
+ * - la durée du stage
  *
- * @author (votre nom)
+ * @author Jean CONSTANT - Quentin SIMON
  * @version (un numéro de version ou une date)
  */
 public class Stage
