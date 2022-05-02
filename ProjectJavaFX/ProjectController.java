@@ -133,7 +133,6 @@ public class ProjectController
         modifButton.setVisible(false);
         deleteButton.setVisible(false);
         annulButton.setVisible(false);
-        
     }
     
     /**
