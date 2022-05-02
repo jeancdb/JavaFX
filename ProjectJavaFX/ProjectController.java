@@ -42,12 +42,14 @@ public class ProjectController
     private String name,sujet,duree,mois,promo;
     /**
      * To Add a new row in the TableView
+     * L'utilisateur est invité à rentrer les 
      */
     @FXML
     private void buttonAdd(ActionEvent event)
     {
-        // Counts number of button clicks and shows the result on a label
+        //on vide d'abord tous les champs de saisie de la partie droite
         annulSaisie();
+        //on change le titre de la page
         rightTitle.setText("Ajout d'un stage,\nveuillez remplir les champs");
         
         submitButton.setVisible(true);
